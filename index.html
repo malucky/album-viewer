@@ -8,22 +8,55 @@
   <meta name="description" content="Slack album viewer">
   <meta name="author" content="Ray Ma">
 
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-  <header>
-    <h1>Slack Album Viewer</h1>
+  <header class="header">
+    <h1 class="header-title">Album Viewer</h1>
   </header>
       
   </header>
   <main>
-    <ul id="photos">
+    <ul class="photoList" id="photoList">
       <li></li>
     </ul>
+
+    <div class="lightbox" id="lightbox">
+      <article class="lightbox-article">
+        <a id="lightbox-previous" href="#" title="previous" class="lightbox-anchor lightbox-anchor--previous">
+          <i class="icon ion-arrow-left-a"></i>
+        </a>
+
+        <div class="lightbox-content">
+          <header class="lightbox-header">
+            <h2 id="lightbox-title" class="lightbox-title"></h2>
+            <a id="lightbox-close" class="lightbox-close" href="#" title="close">
+              <i class="icon ion-close-round"></i>
+            </a>
+          </header>
+          <div class="lightbox-body">
+            <img id="lightbox-image" class="lightbox-image" src="" alt="">
+          </div>
+        </div>
+
+        <a id="lightbox-next" href="#" title="next" class="lightbox-anchor lightbox-anchor--next">
+          <i class="icon ion-arrow-right-a"></i>
+        </a>
+      </article>
+
+    </div>
   </main>
+  <script id="photoItemTemplate" type="text/template">
+    <a href="#">
+      <img src="" alt="">
+    </a>
+  </script>
   <script src="javascript/utils/http.js"></script>
   <script src="javascript/photos.js"></script>
+  <script src="javascript/lightboxService.js"></script>
   <script src="javascript/main.js"></script>
 </body>
 </html>

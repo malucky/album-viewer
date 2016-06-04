@@ -1,8 +1,17 @@
 (function iife() {
   'use strict';
 
-  var photos = window.photos;
+  var lightboxService = new window.LightboxService(),
+      photosService = new window.PhotosService(lightboxService),
+      photosServiceContainer = document.getElementById('photoList');
 
-  return photos.getRecentPhotos()
-    .then(function(arg) {console.log(arg);});
+  window.addEventListener('hashchange', photosService.displayPhotoByHash.bind(photosService));
+
+  return photosService.getRecentPhotos()
+    .then(getRecentPhotosHandler);
+
+  function getRecentPhotosHandler(photos) {
+    photosService.displayPhotos(photos);
+    photosService.displayPhotoByHash();
+  }
 }());
