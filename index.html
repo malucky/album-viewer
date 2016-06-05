@@ -3,15 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
   <title>Slack Album Viewer</title>
-  <meta name="description" content="Slack album viewer">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="album viewer">
   <meta name="author" content="Ray Ma">
 
-  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
 
@@ -19,46 +18,55 @@
   <header class="header">
     <h1 class="header-title">Album Viewer</h1>
   </header>
-      
-  </header>
-  <main>
-    <ul class="photoList" id="photoList">
-      <li></li>
-    </ul>
 
+  <main class="main">
+    <ul class="photoList" id="photoList"></ul>
+
+    <!-- lightbox -->
     <div class="lightbox" id="lightbox">
-      <article class="lightbox-article">
-        <a id="lightbox-previous" href="#" title="previous" class="lightbox-anchor lightbox-anchor--previous">
-          <i class="icon ion-arrow-left-a"></i>
-        </a>
+      <a class="lightbox-anchor lightbox-anchor--previous"
+         href="#" title="previous"
+         id="lightbox-previous">
+        <i class="icon ion-chevron-left"></i>
+      </a>
 
+      <article class="lightbox-article">
         <div class="lightbox-content">
           <header class="lightbox-header">
-            <h2 id="lightbox-title" class="lightbox-title"></h2>
-            <a id="lightbox-close" class="lightbox-close" href="#" title="close">
+            <h2 class="lightbox-title" id="lightbox-title"></h2>
+            <a class="lightbox-close"
+               href="#"
+               id="lightbox-close"
+               title="close">
               <i class="icon ion-close-round"></i>
             </a>
           </header>
-          <div class="lightbox-body">
-            <img id="lightbox-image" class="lightbox-image" src="" alt="">
-          </div>
+          <section class="lightbox-body">
+            <img alt="" class="lightbox-image" id="lightbox-image" src="">
+          </section>
         </div>
-
-        <a id="lightbox-next" href="#" title="next" class="lightbox-anchor lightbox-anchor--next">
-          <i class="icon ion-arrow-right-a"></i>
-        </a>
       </article>
 
+      <a class="lightbox-anchor lightbox-anchor--next"
+         href="#"
+         id="lightbox-next"
+         title="next">
+        <i class="icon ion-chevron-right"></i>
+      </a>
     </div>
   </main>
+
+  <!-- template of photo list item-->
   <script id="photoItemTemplate" type="text/template">
     <a href="#">
-      <img src="" alt="">
+      <img src="" alt="" class="photoItem-image">
     </a>
   </script>
+
   <script src="javascript/utils/http.js"></script>
-  <script src="javascript/photos.js"></script>
-  <script src="javascript/lightboxService.js"></script>
+  <script src="javascript/Photo.js"></script>
+  <script src="javascript/PhotosService.js"></script>
+  <script src="javascript/LightboxService.js"></script>
   <script src="javascript/main.js"></script>
 </body>
 </html>

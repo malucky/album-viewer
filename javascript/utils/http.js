@@ -1,11 +1,14 @@
 (function iife() {
   'use strict';
 
-  // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-  // $http function is implemented in order to follow the standard Adapter pattern
   window.$http = $http;
   window.makeUrl = makeUrl;
 
+  /**
+   * @param baseUrl {String}
+   * @param queryParams {Object}
+   * @return {String} url
+   * */
   function makeUrl(baseUrl, queryParams) {
     var queryParamsStr = Object.keys(queryParams).map(function(key) {
         return key + '=' + queryParams[key];
@@ -16,6 +19,8 @@
       baseUrl;
   }
 
+  // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+  // modified to support get request with query param
   function $http(url){
    
     // A small example of object
@@ -80,6 +85,6 @@
         return core.ajax('DELETE', url, args);
       }
     };
-  };
+  }
 
-}())
+}());

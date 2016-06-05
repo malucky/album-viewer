@@ -1,10 +1,18 @@
+/* base style */
+
 * {
   box-sizing: border-box;
+}
+
+.main {
+  padding: 1rem;
 }
 
 .hidden {
   display: none;
 }
+
+/* header */
 
 .header {
   text-align: center;
@@ -15,74 +23,133 @@
   margin: 1rem;
 }
 
+
+/* photo list */
 .photoList {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
+
+/* photo item */
 .photoItem {
   list-style: none;
+  padding: 0 0.5rem;
 }
 
+.photoItem-image {
+  width: 100%;
+}
+
+
+/* lightbox */
 .lightbox {
+  background-color: rgba(0, 0, 0, 0.85);
   display: none;
-  position: fixed;
-  z-index: 10;
-  top: 0;
   left: 0;
   height: 100%;
+  position: fixed;
+  top: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
+  z-index: 10;
 }
 
 .lightbox--active {
+  align-items: center;
   display: flex;
+  justify-content: center;
 }
 
 .lightbox-article {
-  width: 80%;
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 100%;
 }
 
 .lightbox-content {
-  background-color: #fff;
-  margin: 0 2rem;
+  background-color: #000;
+  height: 80vh;
   position: relative;
   text-align: center;
-  width: 600px;
+  width: 100%;
 }
 
 .lightbox-header {
-  padding: 1rem;
+  align-items: center;
+  display: flex;
+  height: 10%;
+  justify-content: center;
+}
+
+.lightbox-title {
+  color: #fff;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  width:80%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .lightbox-image {
-  width: auto;
   height: 100%;
   margin: auto;
+  width: auto;
 }
 
 .lightbox-anchor {
-  color: #C6E4CB;
-  font-size: 2rem;
+  color: #a9a8a8;
+  font-size: 3rem;
+  margin-top: -1.5rem;
+  position: absolute;
   text-decoration: none;
+  top:50%;
   z-index: 10;
 }
 
+.lightbox-anchor:hover{
+  color: #fff;
+}
+
+.lightbox-anchor--previous {
+  left: 3%;
+}
+
+.lightbox-anchor--next {
+  right: 3%;
+}
+
 .lightbox-close {
-  color: #000;
-  position: absolute;
-  top: 0;
+  color: #fff;
   right: 0;
   margin: 1rem;
+  position: absolute;
+  top: 0;
 }
 
 .lightbox-body {
   overflow: scroll;
-  height: 500px;
+  height: 90%;
+}
+
+/* Extra Small Devices, Phones */ 
+@media (min-width : 425px) {
+  .photoItem {
+    width: 50%;
+  }
+}
+
+/* Tablets */
+@media (min-width : 768px) {
+  .photoItem {
+    width: 25%;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media (min-width : 1024px) {
+  .photoItem {
+    width: 12.5%;
+  }
 }
