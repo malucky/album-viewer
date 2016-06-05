@@ -36,6 +36,7 @@
 .photoItem {
   list-style: none;
   padding: 0 0.5rem;
+  width: 50%;
 }
 
 .photoItem-image {
@@ -136,14 +137,14 @@
 /* Extra Small Devices, Phones */ 
 @media (min-width : 425px) {
   .photoItem {
-    width: 50%;
+    width: 33.33%;
   }
 }
 
 /* Tablets */
 @media (min-width : 768px) {
   .photoItem {
-    width: 25%;
+    width: 20%;
   }
 }
 
