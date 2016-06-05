@@ -1,7 +1,8 @@
 (function iife() {
   'use strict';
 
-  var lightboxService = new window.LightboxService(),
+  var loadingIndicatorElement = document.getElementById('loading-indicator'),
+      lightboxService = new window.LightboxService(),
       photosService = new window.PhotosService(lightboxService);
 
   window.addEventListener('hashchange', photosService.displayPhotoByHash.bind(photosService));
@@ -12,6 +13,8 @@
 
 
   function getRecentPhotosHandler(photos) {
+    loadingIndicatorElement.classList.remove('loading-indicator--active');
+
     photosService.displayPhotos(photos);
     photosService.displayPhotoByHash();
   }
